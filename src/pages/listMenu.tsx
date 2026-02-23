@@ -94,23 +94,20 @@ export default function listMenu() {
     useEffect(() => {
         const reloadPostList = async () => {
             try {
-                // Ambil data dari API lokal
                 const response = await fetch("http://localhost:5173/api/list-menu");
-                // Cek kalau request gagal
                 if (response.status !== 200) {
                     alert("Failed to fetch post");
                     return;
                 }
-                // Ubah respon jadi JSON dan simpan ke state 'posts'
                 const data = await response.json();
                 setPosts(data);
-                console.log(data); // Log data untuk debug
+                console.log(data); 
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
-        reloadPostList(); // Jalankan fungsi di atas
-    }, []) // Kosong [] artinya cuma jalan 1x pas halaman pertama kali dibuka
+        reloadPostList(); 
+    }, []) 
 
     useEffect(() => {
         reload();
