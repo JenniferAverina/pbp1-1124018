@@ -1,5 +1,5 @@
 import { useEffect, type PropsWithChildren } from "react";
-import { AppBar, Box, Button, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, Container, Stack, Toolbar, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router";
 
 export function Layout(props: PropsWithChildren) {
@@ -13,7 +13,7 @@ export function Layout(props: PropsWithChildren) {
     return <Stack>
         <AppBar position="static" sx={{ mb: 3 }}>
             <Toolbar>
-                <Box display='flex' justifyContent="space-between" flexGrow={1}>
+                <Box display='flex' justifyContent="center" flexGrow={1}>
                     {/* <Box display='flex' gap={2}>
                         <Typography variant="h6" sx={{ mr: 2, fontWeight: 'bold' }}>
                             Intro-React
@@ -31,8 +31,10 @@ export function Layout(props: PropsWithChildren) {
                 </Box>
             </Toolbar>
         </AppBar>
-        <Box sx={{ px: 3 }}>
-            {props.children}
-        </Box>
+        <Container maxWidth="lg">
+            <Box sx={{ py: 3 }}>
+                {props.children}
+            </Box>
+        </Container>
     </Stack>
 }
